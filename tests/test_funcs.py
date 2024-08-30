@@ -1,3 +1,5 @@
+import pytest
+
 from main.funcs import division, sum_multiple
 
 
@@ -8,4 +10,6 @@ def test_sum_multiple():
 
 def test_division():
     assert division(10, 2) == 5
-    assert division(10, 0) == 0
+    with pytest.raises(ZeroDivisionError):
+        division(10, 0)
+    assert division(0, 1) == 0
